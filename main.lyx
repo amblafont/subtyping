@@ -451,6 +451,9 @@ Ok, so the choice is like in Coq: parameters (this alternative way) vs indices.
 \end_inset
 
 .
+ The methodology is as follows: look at all the rules, and the conclusion.
+ What are the components that remained unchanged? put them in the domain
+ category.
 \end_layout
 
 \begin_layout Lemma
