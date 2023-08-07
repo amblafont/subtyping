@@ -2168,19 +2168,35 @@ Let
 
 .
  We want that if 
-\begin_inset Formula $X_{\omega}\rightarrow\phi(Y')$
+\begin_inset Formula $\phi(X)\rightarrow\phi'(Y')$
 \end_inset
 
  then we have 
-\begin_inset Formula $F_{rule}(X_{\omega})\rightarrow\phi(F_{rule,\Psi}(Y'))$
+\begin_inset Formula $\phi(F_{rule}(X))\rightarrow\phi'(F_{rule}'(Y'))$
 \end_inset
 
 .
  So we need a natural transformation 
-\begin_inset Formula $F_{rule}\circ\phi\rightarrow\phi\circ F_{rule,\psi}$
+\begin_inset Formula $\phi\circ F_{rule}\rightarrow F_{rule}^{?}\circ\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{rule}^{?}\circ\phi'\rightarrow\phi'\circ F_{rule}'$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+So we need to define 
+\begin_inset Formula $F_{rule}^{?}$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathscr{C}'/{\cal B}'_{i}(\Psi,c)\times Kl_{J}(\Psi,0)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
