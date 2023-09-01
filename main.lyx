@@ -8,6 +8,8 @@
 \begin_preamble
 \usepackage{ebutf8}
 \usepackage{yade}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\B}{\mathcal{B}}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -1853,7 +1855,7 @@ We consider the category
 \end_inset
 
  to 
-\begin_inset Formula $\coprod_{j\in J}\prod_{i\in I_{j}}T(F_{i,j})$
+\begin_inset Formula $\coprod_{j\in J}\prod_{i\in I_{j}}T(F_{i,j})_{c}$
 \end_inset
 
  where 
@@ -2031,7 +2033,7 @@ Let
 We can then define a metavariable object 
 \begin_inset Formula 
 \[
-V'(\Psi,c)=\underbrace{\Psi/Kl_{J}}_{V'_{o}}\times\prod_{i,k}T(F_{i,j_{0}}+\coprod_{l\in K_{i,k}}\beta_{l}+\Psi)_{c}
+V'(\Psi,c)=\underbrace{\Psi/Kl_{J}}_{V'_{o}}\times\underbrace{\prod_{i,k}T(F_{i,j_{0}}+\coprod_{l\in K_{i,k}}\beta_{l}+\Psi)_{c}}_{V'_{i}}
 \]
 
 \end_inset
@@ -2060,7 +2062,7 @@ and define again a morphism
  component potentially many times using the bind extension
 \begin_inset Formula 
 \[
-T(F_{j_{0},i})\times T(F_{j_{0},i}+y0)\rightarrow T(F_{j_{0},i})
+\underbrace{T(F_{j_{0},i})}_{k_{0}}\times T(F_{j_{0},i}+y0)\rightarrow T(F_{j_{0},i})
 \]
 
 \end_inset
@@ -2094,7 +2096,7 @@ where
  We define 
 \begin_inset Formula 
 \[
-W^{k_{0}}(\Psi,c)=\underbrace{(\Psi+yc)/Kl_{J}}_{V'_{o}}\times\prod_{i,k\neq k_{0}}T(F_{i,j_{0}}+\coprod_{l\in K_{i,k}}\beta_{l}+\Psi)_{c}
+W^{k_{0}}(\Psi,c)=\underbrace{(\Psi+yc)/Kl_{J}}_{V'_{o}}\times\underbrace{\prod_{i,k\neq k_{0}}T(F_{i,j_{0}}+\coprod_{l\in K_{i,k}}\beta_{l}+\Psi)_{c}}_{W_{i}^{k_{0}}}
 \]
 
 \end_inset
@@ -2128,6 +2130,23 @@ The challenge now is to define a morphism to
 \end_inset
 
  component
+\end_layout
+
+\begin_layout Subsection
+The conclusion morphism
+\end_layout
+
+\begin_layout Standard
+We also need to define the conclusion morphism 
+\begin_inset Formula $W^{k_{0}}(\Psi,c)\rightarrow{\cal B}'={\cal B}'_{i}(\Psi,c)\times{\cal B}'_{o}(\Psi)$
+\end_inset
+
+.
+ Let us assume it is actually given as 
+\begin_inset Formula $c_{i}\times c_{o}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2194,6 +2213,623 @@ So we need to define
 
  on 
 \begin_inset Formula $\mathscr{C}'/{\cal B}'_{i}(\Psi,c)\times Kl_{J}(\Psi,0)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The intermediate rules
+\end_layout
+
+\begin_layout Standard
+We define 
+\begin_inset Formula ${\cal B}^{?}(\Psi,c)=\underbrace{\coprod_{j\in J}\prod_{i\in I_{j}}T(F_{i,j}+\Psi)_{c}}_{{\cal B}'_{i}}\times\underbrace{Kl_{J}(\Psi,0)}_{{\cal B}_{\omega}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+And 
+\begin_inset Formula 
+\[
+V^{?}(\Psi,c)=\underbrace{Kl_{J}(\Psi+yc,0)}_{V_{\omega}^{?,k_{0}}}\times\underbrace{\prod_{i,k\neq k_{0}}T(F_{i,j_{0}}+\coprod_{l\in K_{i,k}}\beta_{l}+\Psi)_{c}}_{W_{i}^{k_{0}}}
+\]
+
+\end_inset
+
+So we get a morphism 
+\begin_inset Formula $V^{?}(\Psi,c)\rightarrow{\cal B}^{?}\circ O(\Psi,c)={\cal B}^{?}(\Psi+yc,c)$
+\end_inset
+
+ as for 
+\begin_inset Formula $W^{k_{0}}\rightarrow{\cal B}'\circ O$
+\end_inset
+
+.
+ Now, we see the point of indexing over 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ (although we should not ask any morphism between those sigmas): then we
+ can directly define 
+\begin_inset Formula $V^{?}(\Psi,c)\rightarrow{\cal B}^{?}\circ O(\Psi,c)$
+\end_inset
+
+ as 
+\begin_inset Formula $W^{k_{0}}(\Sigma=0)\rightarrow{\cal B}'\circ O(\Sigma=0)$
+\end_inset
+
+.
+ Well we can introduce a more general morphism using the 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+s anyway.
+\end_layout
+
+\begin_layout Standard
+Do we have 
+\begin_inset Formula $\phi\circ F_{rule}\rightarrow F_{rule}^{?}\circ\phi$
+\end_inset
+
+ ?
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $\phi=r^{*}\circ[-\circ\gamma]$
+\end_inset
+
+ where 
+\begin_inset Formula $r:{\cal B}'_{i}(\Psi,c)\times Kl_{J}(\Psi,0)\rightarrow{\cal B}(c)$
+\end_inset
+
+ and 
+\begin_inset Formula $[-\circ\gamma]$
+\end_inset
+
+ turns a presheaf depedning on 
+\begin_inset Formula $c$
+\end_inset
+
+ into a presheaf dpeending on 
+\begin_inset Formula $(\Psi,c)$
+\end_inset
+
+ by precomposing with the first projection.
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $F_{rule}=c_{0,!}\circ p^{*}$
+\end_inset
+
+ where 
+\begin_inset Formula $p:V\rightarrow{\cal B}$
+\end_inset
+
+ is the premise and 
+\begin_inset Formula $c:V\rightarrow{\cal B}$
+\end_inset
+
+ is the conclusion.
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $F_{rule}^{?}=c_{!}\circ p_{?}^{*}\circ[-\circ O]$
+\end_inset
+
+ where 
+\begin_inset Formula $p_{?}:V^{?}\rightarrow{\cal B}^{?}$
+\end_inset
+
+ is the premise and 
+\begin_inset Formula $c:V\rightarrow{\cal B}$
+\end_inset
+
+ is the conclusion.
+\end_layout
+
+\begin_layout Standard
+So, 
+\begin_inset Formula $\phi\circ F_{rule}=r^{*}\circ c_{0,!}\circ p^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{rule}^{?}\circ\phi=c_{!}\circ p_{?}^{*}\circ r^{*}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Set/{\cal B}(c)\xrightarrow{p^{*}}Set/V(c)\xrightarrow{c_{0,!}}Set/{\cal B}(c)\xrightarrow{r^{*}}Set/{\cal B}^{?}(\Psi,c)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{C}/{\cal B}(c)\xrightarrow{r^{*}}\widehat{C\times\hat{C}}/{\cal B}^{?}(\Psi,c)\xrightarrow{}\widehat{C\times\hat{C}}/{\cal B}^{?}(\Psi+yc,c)\xrightarrow{p_{?}^{*}}\widehat{C\times\hat{C}}/V^{?}(\Psi,c)\xrightarrow{c_{!}}\widehat{C\times\hat{C}}/{\cal B}^{?}(\Psi,c)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[every node/.style={inner sep=5pt,outer sep=0pt,anchor=base,tex
+t height=1.2ex, text depth=0.25ex}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (0) at (9.714285714285714em, -9.714285714285714em) {$
+\backslash
+C/
+\backslash
+B(c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (1) at (35.61904761904762em, -9.714285714285714em) {$
+\backslash
+C/V(c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (2) at (42.095238095238095em, -9.714285714285714em) {$
+\backslash
+C/
+\backslash
+B(c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (3) at (42.095238095238095em, -16.19047619047619em) {$
+\backslash
+C/
+\backslash
+B^?(
+\backslash
+Psi,c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (4) at (9.714285714285714em, -16.19047619047619em) {$
+\backslash
+C/
+\backslash
+B^?(
+\backslash
+Psi,c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (5) at (22.666666666666668em, -16.19047619047619em) {$
+\backslash
+C/
+\backslash
+B^?(
+\backslash
+Psi+yc,c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (6) at (35.61904761904762em, -16.19047619047619em) {$
+\backslash
+C/V^?(
+\backslash
+Psi,c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path 
+\end_layout
+
+\begin_layout Plain Layout
+
+(0) to[black,->, ] node[coordinate](7){} (1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(1) to[black,->, ] node[coordinate](8){} (2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(2) to[black,->, ] node[coordinate](9){} (3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(0) to[black,->, ] node[coordinate](10){} (4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(4) to[black,->, ] node[coordinate](11){} (5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(5) to[black,->, ] node[coordinate](12){} (6) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(6) to[black,->, ] node[coordinate](13){} (3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(1) to[black,->, dashed, ] node[coordinate](14){} (6) 
+\end_layout
+
+\begin_layout Plain Layout
+
+; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[->] 
+\end_layout
+
+\begin_layout Plain Layout
+
+(0) edge["${
+\backslash
+scriptstyle p^*}$", pos=0.5, black,->, ] (1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(1) edge["${
+\backslash
+scriptstyle c_{0,!}}$", pos=0.5, black,->, ] (2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(2) edge["${
+\backslash
+scriptstyle r^*}$", pos=0.5, black,->, ] (3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(0) edge["${
+\backslash
+scriptstyle r^*}$"', pos=0.5, black,->, ] (4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(4) edge["${
+\backslash
+scriptstyle -
+\backslash
+circ O}$"', pos=0.5, black,->, ] (5) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(5) edge["${
+\backslash
+scriptstyle p^*_?}$"', pos=0.5, black,->, ] (6) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(6) edge["${
+\backslash
+scriptstyle c_!}$"', pos=0.5, black,->, ] (3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(1) edge["${
+\backslash
+scriptstyle v^*}$", pos=0.5, black,->, dashed, ] (6) 
+\end_layout
+
+\begin_layout Plain Layout
+
+; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+diagrams/commute-F.json
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we may need a morphism 
+\begin_inset Formula $v:V^{?}(\Psi,c)\rightarrow V(c)$
+\end_inset
+
+, that is, a morphism
+\begin_inset Formula 
+\[
+\underbrace{Kl_{J}(\Psi+yc,0)}_{V_{\omega}^{?,k_{0}}}\times\underbrace{\prod_{i,k\neq k_{0}}T(F_{i,j_{0}}+\coprod_{l\in K_{i,k}}\beta_{l}+\Psi)_{c}}_{W_{i}^{k_{0}}}\rightarrow\prod_{i,k}T(F_{i,j_{0}}+\coprod_{l\in K_{i,k}}\beta_{l})_{c}
+\]
+
+\end_inset
+
+The main issue is how do we get the morphism to the 
+\begin_inset Formula $k^{th}$
+\end_inset
+
+ component 
+\begin_inset Formula $T(F_{i,j_{0}})_{c}$
+\end_inset
+
+? I guess the idea is to exploit 
+\begin_inset Formula $Kl_{J}(yc,0)=T(J)_{c}$
+\end_inset
+
+.
+ So this enforces, 
+\begin_inset Formula $F_{i,j_{0}}=J$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+We get a natural transformation for the right square above using the mate
+ correspondance and the fact that the following square commutes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[every node/.style={inner sep=5pt,outer sep=0pt,anchor=base,tex
+t height=1.2ex, text depth=0.25ex}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (0) at (22.666666666666668em, -42.095238095238095em) {$V^?(
+\backslash
+Psi,c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (1) at (29.142857142857142em, -42.095238095238095em) {$V(c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (2) at (29.142857142857142em, -48.57142857142857em) {$
+\backslash
+B(c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (3) at (22.666666666666668em, -48.57142857142857em) {$
+\backslash
+B^?(
+\backslash
+Psi,c)$} ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path 
+\end_layout
+
+\begin_layout Plain Layout
+
+(0) to[black,->, ] node[coordinate](4){} (1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(1) to[black,->, ] node[coordinate](5){} (2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(0) to[black,->, ] node[coordinate](6){} (3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(3) to[black,->, ] node[coordinate](7){} (2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[->] 
+\end_layout
+
+\begin_layout Plain Layout
+
+(0) edge["${
+\backslash
+scriptstyle v}$", pos=0.5, black,->, ] (1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(1) edge["${
+\backslash
+scriptstyle c_0}$", pos=0.5, black,->, ] (2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(0) edge["${
+\backslash
+scriptstyle c}$"', pos=0.5, black,->, ] (3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+(3) edge["${
+\backslash
+scriptstyle r}$"', pos=0.5, black,->, ] (2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The other natural transformation
+\end_layout
+
+\begin_layout Standard
+We want 
+\begin_inset Formula $F_{rule}^{?}\circ\phi'\rightarrow\phi'\circ F_{rule}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Recall that 
+\begin_inset Formula $\phi'=m_{!}\circ w^{*}$
+\end_inset
+
+ where 
+\begin_inset Formula 
+\[
+w:\underbrace{{\cal B}'_{i}\times Kl_{J}(\Sigma,0)\times_{\Sigma}Kl_{J}(\Psi,\Sigma)}_{{\cal B}_{\Sigma}}\rightarrow{\cal B}'=({\cal B}'_{i}\times\Psi/Kl_{J})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+m:{\cal B}'_{i}\times Kl_{J}(\Sigma,0)\times_{\Sigma}Kl_{J}(\Psi,\Sigma)\rightarrow{\cal B}'_{i}\times Kl(\Psi,0)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let us define 
+\begin_inset Formula 
+\begin{align*}
+V^{\Sigma}(\Psi,c) & =Kl_{J}(\Sigma,0)\times_{\Sigma}Kl_{J}(\Psi+yc,\Sigma)\times W_{i}^{k_{0}}(\Psi,c)\\
+u & :V^{\Sigma}\rightarrow W^{k_{0}}\\
+n & :V^{\Sigma}\rightarrow V^{?}=(Kl_{J}(\Psi+yc,0)\times W_{i}^{k_{0}}(\Psi,c))\\
+p_{\Sigma} & :V^{\Sigma}\rightarrow{\cal B}^{\Sigma}\circ O
+\end{align*}
+
 \end_inset
 
 
