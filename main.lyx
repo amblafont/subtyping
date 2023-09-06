@@ -2835,6 +2835,574 @@ p_{\Sigma} & :V^{\Sigma}\rightarrow{\cal B}^{\Sigma}\circ O
 
 \end_layout
 
+\begin_layout Section
+Starting again, with simple settings and notations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\conclusion}{c}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\premise}{p}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\premiseZ}{p_{0}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\base}{{\cal B}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider a monad 
+\begin_inset Formula $T$
+\end_inset
+
+ on 
+\begin_inset Formula $[C,Set]$
+\end_inset
+
+ induced by a relative monad 
+\begin_inset Formula $R$
+\end_inset
+
+, equipped with a cartesian strength.
+ Intuition, 
+\begin_inset Formula $T$
+\end_inset
+
+ is the free sigma monoid monad without the variables.
+\end_layout
+
+\begin_layout Standard
+The main example:
+\begin_inset Formula 
+\[
+\dfrac{A[\tau]\leq B}{\forall A\leq B}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $J:C\rightarrow Set$
+\end_inset
+
+ be called the variable functor (e.g., 
+\begin_inset Formula $J=y1$
+\end_inset
+
+).
+ We define 
+\begin_inset Formula $T_{J}=T^{(J)}=T(J+-)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $Kl_{J}$
+\end_inset
+
+ denotes the Kleisli category of 
+\begin_inset Formula $T_{J}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We consider the category 
+\begin_inset Formula $\mathscr{C}=[C,Set]$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathscr{C}'=|[C,Set]|\ensuremath{\times}|C|\rightarrow Set$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\base:|[C,Set]|\ensuremath{\times}|C|\rightarrow Set$
+\end_inset
+
+ defined by 
+\begin_inset Formula 
+\[
+\base(\Psi)_{c}=\prod_{i\in I}T_{J}(F_{i}+\Psi)_{c}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $F_{i}:C\rightarrow Set$
+\end_inset
+
+.
+ We consider the category 
+\begin_inset Formula $\mathscr{C}/\base(0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Question
+Extension systems for monads with (cartesian) strengths ? According to 
+\begin_inset Quotes eld
+\end_inset
+
+What Makes a Strong Monad?
+\begin_inset Quotes erd
+\end_inset
+
+ the bind operator maps 
+\begin_inset Formula $\Gamma\times X\rightarrow TY$
+\end_inset
+
+ to 
+\begin_inset Formula $\Gamma\times TX\rightarrow TY$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+We consider 
+\begin_inset Formula $\base(\Psi)=T(y1+\Psi)\times T(y1+\Psi)$
+\end_inset
+
+ as a functor from 
+\begin_inset Formula $\mathbb{F}_{m}$
+\end_inset
+
+, for 
+\begin_inset Formula $A,B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+An adequate metavariable object consists of 
+\begin_inset Formula $W:[Kl_{J},Set]\ensuremath{\times}|C|\rightarrow Set$
+\end_inset
+
+, and for each 
+\begin_inset Formula $i\in I$
+\end_inset
+
+, of
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A module morphism 
+\begin_inset Formula $W(\Psi)_{c}\xrightarrow{\alpha_{\Psi,c}}\underbrace{\prod_{i}T_{J}(F_{i}+k_{i}\cdot y_{0}+\Psi)_{c}}_{{\cal S}(\Psi)_{c}}$
+\end_inset
+
+ where 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+ is a finite number,
+\end_layout
+
+\begin_layout Standard
+This generates a morphism 
+\begin_inset Formula $\premise:V\rightarrow\base$
+\end_inset
+
+ by taking 
+\begin_inset Formula $V=W\times\prod_{i}T_{J}(F_{i}+-)^{k_{i}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+An adequate conclusion morphism over an adequate metavariable object is
+ a morphism 
+\begin_inset Formula 
+\[
+c:V\rightarrow\base
+\]
+
+\end_inset
+
+that factors through some module morphism
+\begin_inset Formula 
+\[
+\conclusion^{W}:W\rightarrow\base
+\]
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $V=T(y1+y0+-)\times T(y1+-)\times T(y1+-)$
+\end_inset
+
+ for 
+\begin_inset Formula $A,\tau,B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now we consider 
+\begin_inset Formula $\base'\in\mathscr{C}'$
+\end_inset
+
+, defined by
+\begin_inset Formula 
+\[
+\base'(\Psi)_{c}=\underbrace{\Psi/Kl_{J}}_{\base'_{out}}\times\underbrace{\base(\Psi)_{c}}_{\base'_{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can then define a metavariable object 
+\begin_inset Formula 
+\[
+V'(\Psi)_{c}=\underbrace{(\Psi+yc)/Kl_{J}}_{V'_{out}}\times\underbrace{W(\Psi)_{c}}_{V'_{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and we want to define a morphism 
+\begin_inset Formula $V'\rightarrow\base'$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Remark
+There is a size issue.
+\end_layout
+
+\begin_layout Remark
+\begin_inset Formula 
+\[
+V'\rightarrow-/Kl_{J}\times{\cal S}\xrightarrow{?}\base'\circ O=(-+yc)/Kl_{J}\times\base(\Psi+yc)_{c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+where 
+\begin_inset Formula 
+\[
+O(\Psi,c)=(\Psi+yc,c)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+The challenge consists, given 
+\begin_inset Formula $\sigma:\Psi\rightarrow T_{J}(\Sigma)$
+\end_inset
+
+, in defining a function 
+\begin_inset Formula $T_{J}(F_{i}+k_{i}\cdot y_{0}+\Psi)_{c}\rightarrow T_{J}(F_{i}+\Psi+yc)_{c}$
+\end_inset
+
+, or equivalently, a function 
+\begin_inset Formula $T_{J^{(c)}}(F_{i}^{(c)}+k_{i}\cdot y_{0}+\Psi^{(c)})_{0}\rightarrow T_{J^{(c)}}(F_{i}^{(c)}+yc^{(c)}+\Psi^{(c)})_{0}$
+\end_inset
+
+ It is induced by the morphism 
+\begin_inset Formula $y_{0}=y_{0}^{(c)}\rightarrow y_{c}^{(c)}\rightarrow T(y_{c}^{(c)})\cong T(y_{c})_{c}\hookrightarrow T_{J}(F_{i}+\Psi+yc)_{c}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Question
+Bind for this kind of T ? Maybe with petit foncteurs
+\end_layout
+
+\begin_layout Remark
+And the conclusion morphism is given ok.
+\end_layout
+
+\begin_layout Subsection
+Completeness property.
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\projection}{\pi}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $X\xrightarrow{x}\base$
+\end_inset
+
+ as the initial algebra for the rules.
+ Let
+\begin_inset Formula 
+\[
+\pi_{\Psi,c}:\underbrace{\base(\Psi)_{c}\times Kl_{J}(\Psi,0)}_{\base^{\omega}(\Psi)_{c}}\rightarrow\base(0)_{c}
+\]
+
+\end_inset
+
+Define 
+\begin_inset Formula $\pi_{\Psi,c}^{*}x_{\Psi,c}$
+\end_inset
+
+ as the pullback of 
+\begin_inset Formula $X_{c}\rightarrow\base(0)_{c}\leftarrow\base(\Psi)_{c}\times Kl_{J}(\Psi,0)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\underbrace{\Psi/Kl_{J}}_{\base'_{out}}\times\underbrace{\base(\Psi)_{c}}_{\base'_{in}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula 
+\begin{align*}
+\pi' & _{\Psi,c}:\base(\Psi)_{c}\times\underbrace{\coprod_{\Sigma}Kl_{J}(\Psi,\Sigma)\times Kl(\Sigma,0)}_{Kl_{J}(\Psi-0)}\rightarrow\base'(\Psi)_{c}=\base(\Psi)_{c}\times\Psi/Kl_{J}\\
+q_{\Psi,c} & :\base(\Psi)_{c}\times Kl_{J}(\Psi-0)\rightarrow\underbrace{\base(\Psi)_{c}\times Kl_{J}(\Psi,0)}_{\base^{\omega}(\Psi)_{c}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+so that given, 
+\begin_inset Formula $Y\xrightarrow{y}\base'$
+\end_inset
+
+, we have 
+\begin_inset Formula $q_{!}\pi'^{*}y$
+\end_inset
+
+ as a morphism to 
+\begin_inset Formula 
+\[
+\premise':Kl_{J}\rightarrow\Psi/Kl_{J}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, 
+\begin_inset Formula $Y\xrightarrow{y}\base'$
+\end_inset
+
+ is complete if there exists a morphism 
+\begin_inset Formula $\pi^{*}x\rightarrow q_{!}\pi'^{*}y$
+\end_inset
+
+.
+ To prove the stuff by induction, we want that if 
+\begin_inset Formula $\phi(X)\rightarrow\phi'(Y')$
+\end_inset
+
+ then we have 
+\begin_inset Formula $\phi(F_{rule}(X))\rightarrow\phi'(F_{rule}'(Y'))$
+\end_inset
+
+.
+ So we need a natural transformation 
+\begin_inset Formula $\phi\circ F_{rule}\rightarrow F_{rule}^{\omega}\circ\phi$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{rule}^{?}\circ\phi'\rightarrow\phi'\circ F_{rule}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+So we need to define 
+\begin_inset Formula $F_{rule}^{\omega}$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathscr{C}'/\base'_{i}(\Psi,c)\times Kl_{J}(\Psi,0)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let be more precise.
+\begin_inset Formula 
+\[
+\phi=(\hat{|C|}/\base(0)\xrightarrow{-\circ K}\mathscr{C}/{\cal B}(0)\xrightarrow{\pi^{*}}\mathscr{C}/\base^{\omega})
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $K:\mathscr{C}\rightarrow|C|$
+\end_inset
+
+ is the obvious projection.
+\end_layout
+
+\begin_layout Subsubsection
+The intermediate rules
+\end_layout
+
+\begin_layout Standard
+We define
+\begin_inset Formula 
+\[
+V^{\omega}(\Psi)_{c}=\underbrace{Kl_{J}(\Psi+yc,0)}_{V_{out}^{\omega}}\times W(\Psi)_{c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we get again a morphism 
+\begin_inset Formula 
+\begin{align*}
+V^{\omega}(\Psi)_{c} & \xrightarrow{\premise^{\omega}}\base^{\omega}\circ O(\Psi)_{c}=\base^{\omega}(\Psi+yc)_{c}\\
+V^{\omega} & \xrightarrow{c^{\omega}}\base^{\omega}
+\end{align*}
+
+\end_inset
+
+defined by
+\begin_inset Formula 
+\begin{align*}
+\conclusion^{\omega} & =\quad Kl_{J}(\Psi+yc,0)\times W(\Psi)_{c}\xrightarrow{-\times\conclusion^{W}}Kl_{J}(\Psi+yc,0)\times\base(\Psi)_{c}\\
+ & \xrightarrow{}Kl_{J}(\Psi,0)
+\end{align*}
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Do we have 
+\begin_inset Formula $\phi\circ F_{rule}\rightarrow F_{rule}^{\omega}\circ\phi$
+\end_inset
+
+ ?
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $F_{rule}=c_{0,!}\circ\premiseZ$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $F_{rule}^{\omega}=c_{!}\circ\premise^{\omega*}\circ(-\circ O)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We need 
+\begin_inset Formula $v:V^{\omega}\rightarrow V(0)$
+\end_inset
+
+ defined by
+\begin_inset Formula 
+\[
+v:=\quad\underbrace{Kl_{J}(\Psi+yc,0)}_{V_{out}^{\omega}}\times W(\Psi)_{c}\rightarrow W(0)_{c}\times\prod_{i}T_{J}(F_{i})_{c}^{k_{i}}
+\]
+
+\end_inset
+
+The morphism 
+\begin_inset Formula $V^{\omega}\rightarrow T_{J}(F_{i})_{c}$
+\end_inset
+
+ is given by the morphism 
+\begin_inset Formula $Kl_{J}(yc,0)$
+\end_inset
+
+ which is nothing but an element of 
+\begin_inset Formula $T_{J}(0)_{c}$
+\end_inset
+
+.
+ Cf 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+diagrams/commute-F-notationQ.json
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
